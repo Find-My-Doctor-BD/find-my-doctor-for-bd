@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://USERNAME.github.io/find-my-doctor-for-bd/sitemap.xml

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find My Doctor For BD — বাংলাদেশের ডাক্তার খোঁজার প্ল্যাটফর্ম</title>
+    <meta name="description" content="বাংলাদেশের ৬৪ জেলার বিশেষজ্ঞ ডাক্তার খুঁজুন। রোগ, উপসর্গ, বিশেষজ্ঞ বা জেলা অনুযায়ী ডাক্তার খুঁজে নিন।" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      // Restore route from GitHub Pages SPA fallback
+      (function () {
+        var l = window.location;
+        if (l.search[1] === "/") {
+          var decoded = l.search.slice(1).split("&").map(function (s) {
+            return s.replace(/~and~/g, "&");
+          }).join("?");
+          window.history.replaceState(null, "", l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
