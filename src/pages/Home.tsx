@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Search, MapPin, Stethoscope, Hospital, ShieldCheck } from "lucide-react";
 import { divisions } from "../data/divisions";
 import { specialities } from "../data/specialities";
@@ -47,10 +47,10 @@ export default function Home() {
             { label: "বিশেষজ্ঞ অনুযায়ী", icon: <Stethoscope />, to: "/specialities" },
             { label: "হাসপাতাল অনুযায়ী", icon: <Hospital />, to: "/search?q=" },
           ].map((c) => (
-            <a key={c.label} href={c.to} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col items-center gap-3 text-center">
+            <Link key={c.label} to={c.to} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition flex flex-col items-center gap-3 text-center">
               <div className="text-emerald-600">{c.icon}</div>
               <span className="font-medium text-gray-700">{c.label}</span>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -60,9 +60,9 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-gray-800 mb-6">জনপ্রিয় বিশেষজ্ঞ</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
           {specialities.slice(0, 12).map((s) => (
-            <a key={s.id} href={`/speciality/${s.id}`} className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md text-center text-sm font-medium text-gray-700 hover:text-emerald-600">
+            <Link key={s.id} to={`/speciality/${s.id}`} className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md text-center text-sm font-medium text-gray-700 hover:text-emerald-600">
               {s.nameBn}
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -72,14 +72,14 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-gray-800 mb-6">জনপ্রিয় বিশেষজ্ঞ ডাক্তার</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {doctors.slice(0, 6).map((d) => (
-            <a key={d.id} href={`/doctor/${d.id}`} className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md flex gap-4">
+            <Link key={d.id} to={`/doctor/${d.id}`} className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md flex gap-4">
               <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center text-2xl">👨‍⚕️</div>
               <div>
                 <p className="font-semibold text-gray-800">{d.name}</p>
                 <p className="text-sm text-emerald-600">{specialities.find((s) => s.id === d.specialityId)?.nameBn}</p>
                 <p className="text-xs text-gray-500">{d.hospital}</p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -89,9 +89,9 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-gray-800 mb-6">বিভাগ অনুযায়ী ডাক্তার</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {divisions.map((dv) => (
-            <a key={dv.id} href={`/districts#${dv.id}`} className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md text-center font-medium text-gray-700 hover:text-emerald-600">
+            <Link key={dv.id} to={`/districts#${dv.id}`} className="bg-white rounded-xl p-4 shadow-sm hover:shadow-md text-center font-medium text-gray-700 hover:text-emerald-600">
               {dv.nameBn}
-            </a>
+            </Link>
           ))}
         </div>
       </section>
@@ -102,7 +102,7 @@ export default function Home() {
           <ShieldCheck className="mx-auto text-emerald-600 mb-4" size={40} />
           <h2 className="text-2xl font-bold text-gray-800 mb-2">ডাক্তার রেজিস্ট্রেশন</h2>
           <p className="text-gray-600 mb-4">আপনি কি একজন চিকিৎসক? আপনার তথ্য যুক্ত করতে অ্যাডমিনের সাথে যোগাযোগ করুন।</p>
-          <a href="/admin" className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700">রেজিস্ট্রেশন করুন</a>
+          <Link to="/admin" className="inline-block px-6 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700">রেজিস্ট্রেশন করুন</Link>
         </div>
       </section>
     </div>
