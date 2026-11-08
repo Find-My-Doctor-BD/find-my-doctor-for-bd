@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import heroImg from "../assets/hero.png";
 import { Search, MapPin, Stethoscope, Hospital, ShieldCheck } from "lucide-react";
 import { divisions } from "../data/divisions";
 import { specialities } from "../data/specialities";
@@ -18,22 +19,27 @@ export default function Home() {
     <div>
       {/* Hero */}
       <section className="bg-gradient-to-br from-emerald-600 to-teal-700 text-white py-16 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">আপনার সমস্যার জন্য সঠিক বিশেষজ্ঞ ডাক্তার খুঁজুন</h1>
-          <p className="text-lg md:text-xl text-emerald-100 mb-8">
-            রোগের নাম, শারীরিক সমস্যা অথবা বিশেষজ্ঞের ধরন লিখে বাংলাদেশের অভিজ্ঞ ডাক্তারদের খুঁজে নিন।
-          </p>
-          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
-            <input
-              value={q}
-              onChange={(e) => setQ(e.target.value)}
-              placeholder="রোগ, উপসর্গ, ডাক্তার অথবা বিশেষজ্ঞের নাম লিখুন"
-              className="flex-1 px-5 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-emerald-300"
-            />
-            <button type="submit" className="px-6 py-3 rounded-xl bg-white text-emerald-700 font-semibold hover:bg-emerald-50 flex items-center justify-center gap-2">
-              <Search size={18} /> ডাক্তার খুঁজুন
-            </button>
-          </form>
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8">
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">আপনার সমস্যার জন্য সঠিক বিশেষজ্ঞ ডাক্তার খুঁজুন</h1>
+            <p className="text-lg md:text-xl text-emerald-100 mb-8">
+              রোগের নাম, শারীরিক সমস্যা অথবা বিশেষজ্ঞের ধরন লিখে বাংলাদেশের অভিজ্ঞ ডাক্তারদের খুঁজে নিন।
+            </p>
+            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 max-w-2xl">
+              <input
+                value={q}
+                onChange={(e) => setQ(e.target.value)}
+                placeholder="রোগ, উপসর্গ, ডাক্তার অথবা বিশেষজ্ঞের নাম লিখুন"
+                className="flex-1 px-5 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-4 focus:ring-emerald-300"
+              />
+              <button type="submit" className="px-6 py-3 rounded-xl bg-white text-emerald-700 font-semibold hover:bg-emerald-50 flex items-center justify-center gap-2">
+                <Search size={18} /> ডাক্তার খুঁজুন
+              </button>
+            </form>
+          </div>
+          <div className="flex-1 flex justify-center">
+            <img src={heroImg} alt="ডাক্তার খোঁজা" className="w-72 md:w-96 drop-shadow-2xl rounded-3xl" />
+          </div>
         </div>
       </section>
 
