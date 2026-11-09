@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import SearchResults from "./pages/SearchResults";
@@ -6,8 +7,10 @@ import DistrictPage from "./pages/DistrictPage";
 import SpecialityPage from "./pages/SpecialityPage";
 import Admin from "./pages/Admin";
 import { Helmet } from "react-helmet-async";
+import { Menu, X } from "lucide-react";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
       <Helmet>
@@ -17,7 +20,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <span className="text-2xl">🩺</span>
-            <span className="font-bold text-xl text-emerald-700">Find My Doctor For BD</span>
+            <span className="font-bold text-lg md:text-xl text-emerald-700">Find My Doctor For BD</span>
           </Link>
           <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700">
             <Link to="/" className="hover:text-emerald-600">হোম</Link>
@@ -25,7 +28,18 @@ export default function App() {
             <Link to="/specialities" className="hover:text-emerald-600">বিশেষজ্ঞ</Link>
             <Link to="/admin" className="hover:text-emerald-600">অ্যাডমিন</Link>
           </nav>
+          <button className="md:hidden p-2 text-gray-700" onClick={() => setMenuOpen(!menuOpen)} aria-label="মেনু">
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
+        {menuOpen && (
+          <div className="md:hidden bg-white border-t px-4 py-3 flex flex-col gap-3 text-sm font-medium text-gray-700">
+            <Link to="/" onClick={() => setMenuOpen(false)} className="py-2 hover:text-emerald-600">হোম</Link>
+            <Link to="/districts" onClick={() => setMenuOpen(false)} className="py-2 hover:text-emerald-600">জেলা</Link>
+            <Link to="/specialities" onClick={() => setMenuOpen(false)} className="py-2 hover:text-emerald-600">বিশেষজ্ঞ</Link>
+            <Link to="/admin" onClick={() => setMenuOpen(false)} className="py-2 hover:text-emerald-600">অ্যাডমিন</Link>
+          </div>
+        )}
       </header>
       <main className="min-h-screen bg-gray-50">
         <Routes>

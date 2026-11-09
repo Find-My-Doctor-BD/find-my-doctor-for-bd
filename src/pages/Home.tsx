@@ -38,7 +38,7 @@ export default function Home() {
             </form>
           </div>
           <div className="flex-1 flex justify-center">
-            <svg viewBox="0 0 400 400" className="w-72 md:w-96 drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 400 400" className="w-48 md:w-72 lg:w-96 drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
