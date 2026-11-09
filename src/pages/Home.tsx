@@ -121,6 +121,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Health info */}
+      <section className="max-w-7xl mx-auto px-4 py-12">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">স্বাস্থ্যবিষয়ক তথ্য</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            { title: "ডায়াবেটিস নিয়ন্ত্রণ", desc: "নিয়মিত রক্তে সুগার পরীক্ষা করুন, সুষম খাবার খান এবং নিয়মিত ব্যায়াম করুন।", icon: "🩸" },
+            { title: "হৃদরোগ প্রতিরোধ", desc: "ধূমপান ত্যাগ করুন, লবণ কম খান, নিয়মিত হাঁটুন এবং চাপ কমান।", icon: "❤️" },
+            { title: "জরুরি সেবা", desc: "জরুরি স্বাস্থ্যসমস্যায় ৯৯৯ নম্বরে কল করুন অথবা নিকটস্থ হাসপাতালে যান।", icon: "🚑" },
+          ].map((h) => (
+            <div key={h.title} className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+              <div className="text-3xl mb-3">{h.icon}</div>
+              <h3 className="font-semibold text-gray-800 mb-2">{h.title}</h3>
+              <p className="text-sm text-gray-600">{h.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Doctor registration */}
       <section className="max-w-7xl mx-auto px-4 py-12">
         <div className="bg-emerald-50 rounded-3xl p-8 text-center">
