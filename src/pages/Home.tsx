@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import heroImg from "../assets/hero.png";
+// hero image removed in favor of inline SVG illustration
 import { Search, MapPin, Stethoscope, Hospital, ShieldCheck } from "lucide-react";
 import { divisions } from "../data/divisions";
 import { specialities } from "../data/specialities";
@@ -38,7 +38,26 @@ export default function Home() {
             </form>
           </div>
           <div className="flex-1 flex justify-center">
-            <img src={heroImg} alt="ডাক্তার খোঁজা" className="w-72 md:w-96 drop-shadow-2xl rounded-3xl" />
+            <svg viewBox="0 0 400 400" className="w-72 md:w-96 drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="#d1fae5" stopOpacity="0.9" />
+                </linearGradient>
+              </defs>
+              <circle cx="200" cy="200" r="180" fill="url(#g)" />
+              <g transform="translate(80,60)" fill="none" stroke="#047857" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="120" cy="80" r="40" fill="#047857" stroke="none" />
+                <path d="M80 120 Q80 180 120 200 Q160 180 160 120" />
+                <path d="M120 200 L120 260" />
+                <circle cx="120" cy="280" r="20" fill="#047857" stroke="none" />
+                <path d="M100 280 L60 280 L60 240" />
+                <circle cx="60" cy="230" r="12" fill="#059669" stroke="none" />
+              </g>
+              <g transform="translate(40,300)" fill="none" stroke="#10b981" strokeWidth="6" strokeLinecap="round">
+                <path d="M0 20 L30 20 L40 0 L50 40 L60 20 L90 20 L100 5 L110 35 L120 20 L320 20" />
+              </g>
+            </svg>
           </div>
         </div>
       </section>
